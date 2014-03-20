@@ -1,10 +1,9 @@
 require 'sinatra'
-
 require_relative './lib/sudoku'
 require_relative './lib/cell'
-
+ 
 enable :sessions
-
+ 
 def random_sudoku
   seed = (1..9).to_a.shuffle + Array.new(81-9, 0)
   sudoku = Sudoku.new(seed.join)
@@ -12,9 +11,9 @@ def random_sudoku
   sudoku.to_s.chars
 end
 
+# this method removes some digits from the solution to create a puzzle
 def puzzle(sudoku)
-  # this method is yours to implement
-  sudoku 
+  sudoku.map { |element| rand > 0.5 ? ' ' : element }
 end
 
 get '/' do
@@ -24,11 +23,7 @@ get '/' do
   erb :index
 end
 
-get '/last-session' do
-    "Previous visit to homepage: #{session[:last_visit]}"
-end
-
 get '/solution' do
-    @current_solution = session[:solution]
-    erb :index
+  @current_solution = session[:solution]
+  erb :index
 end
