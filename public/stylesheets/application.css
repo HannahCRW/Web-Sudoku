@@ -40,11 +40,11 @@ div.box, div.cell {
 }
 
 .incorrect {
-  background-color: yellow;
+  background-color: #ee4848;
 }
 
 .value-provided {
-  background-color: #DDD;
+  background-color: #e59d4c;
 }
 
 

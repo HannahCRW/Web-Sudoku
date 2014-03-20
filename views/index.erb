@@ -9,6 +9,7 @@
 Sudoku innit
 </div>
 <div id="sudoku">
+  <form action="/" method="post">
   <!-- one div for each row -->
   <% 3.times do |row| %>
     <div class='row'>
@@ -23,7 +24,11 @@ Sudoku innit
                     <!-- every cell will have an input field -->
                     <% cell_index = row * 27 + box * 3 + cell_row * 9 + cell %>
 										<% cell_value = @current_solution[cell_index] %>
-										<input name="cell[]" input type="text" input class="<%=color class%>" maxlength="1" autocomplete="off" value="<%= cell_value %>" >
+                    <% color_class = colour_class(@check_solution, @puzzle[cell_index], @current_solution[cell_index], @solution[cell_index])  %>
+										<input 
+                      name="cell[]" 
+                      type="text" 
+                      class="<%=color_class%>" maxlength="1" autocomplete="off" value="<%= clean_up_cell_value(cell_value) %>" >
                   </div>
                 <% end %>
               </div>
@@ -34,10 +39,8 @@ Sudoku innit
     <% end %>
   </div>
   <div id="sudoku-button">
-    <form action="/" method="post">
-      <!-- all boxes, rows and cells -->
-      <button>Yes, but is it right?</button>
-    </form>
+    <button>Yes, but is it right?</button>
+  </form>
 </div>
 </body>
 </html>
