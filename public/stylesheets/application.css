@@ -1,6 +1,6 @@
 body
 {
-    background-image: url("http://static.parade.condenast.com/wp-content/uploads/2013/07/grumpy-cat-ftr-1024x640.jpg");
+    background-image: url("http://i.imgur.com/9CBqQIh.jpg");
     background-size: cover;
     margin: 100 100 100 100;
 
@@ -17,9 +17,9 @@ body
 }
 
 #sudoku {
-	width: 446px;
+	width: 100%;
 	margin-top: 25px;
-	margin-left: auto;
+	margin-left: 363px;
 	margin-right: auto;
 }
 
@@ -32,7 +32,14 @@ div.box, div.cell {
 .cell input {
   width: 30px;
   height: 30px;
-  margin: 8 8 8 8;
-  opacity: 0.5;
+  margin: 3 3 3 3;
+  opacity: 0.6;
   border: dashed;
+  text-align: center;
+  font-family: Arial;
+}
+
+#sudoku-button {
+	margin-left: 482px;
+	margin-top: 25px;
 }

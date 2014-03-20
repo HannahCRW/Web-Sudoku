@@ -13,7 +13,7 @@ end
 
 # this method removes some digits from the solution to create a puzzle
 def puzzle(sudoku)
-  sudoku.map { |element| rand > 0.5 ? ' ' : element }
+  sudoku.map { |element| rand > 0.37 ? ' ' : element }
 end
 
 get '/' do
@@ -21,6 +21,13 @@ get '/' do
   session[:solution] = sudoku
   @current_solution = puzzle(sudoku)
   erb :index
+end
+
+post '/' do
+  cells = params["cell"]
+  session[:current_solution] = cells.map{|value| value.to_i }.join
+  session[:check_solution] = true
+  redirect to("/")
 end
 
 get '/solution' do
