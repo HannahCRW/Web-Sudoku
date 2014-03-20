@@ -39,7 +39,17 @@ div.box, div.cell {
   font-family: Arial;
 }
 
+.incorrect {
+  background-color: yellow;
+}
+
+.value-provided {
+  background-color: #DDD;
+}
+
+
 #sudoku-button {
 	margin-left: 482px;
 	margin-top: 25px;
 }
+
