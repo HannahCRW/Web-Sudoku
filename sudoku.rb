@@ -53,6 +53,11 @@ get '/solution' do
   # erb :index
 end
 
+# post '/new_game' do
+# 	session = {}
+# 	redirect to('/')
+# end
+
 
 def box_order_to_row_order(cells)
   boxes = cells.each_slice(9).to_a
