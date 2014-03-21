@@ -3,11 +3,13 @@
   <title>Sudoku Game</title>   
   <!-- link to the CSS stylesheet -->
   <link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door|Sofadi+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div id="title">
 SuperDoku
 </div>
+<div id="top-buttons"><button id="home-button">Home</button><button id="info-button">Instructions</button></div>
 <div id="sudoku">
   <form action="/" method="post">
   <!-- one div for each row -->
@@ -38,9 +40,15 @@ SuperDoku
       </div>
     <% end %>
   </div>
-  <div id="sudoku-button">
-      <text>Yes, but is it right?</text>
-  </form>
+  <div id="sudoku-button-div">
+      <button id="sudoku-button">Yes, but is it right?</button>
+</div> 
+  <div id="solution-button-div">
+    <button id="solution-button">See Solution</button>
+  </div>
+</form>
+<div id="level-buttons">
+  <form action="/hard-puzzle" method="post"><button id="hard-button">Hard Puzzle</button></form><form action="/medium-puzzle" method="post"><button id="medium-button">Medium Puzzle</button></form><form action="/easy-puzzle" method="post"><button id="easy-button">Easy Puzzle</button></form>
 </div>
 </body>
 </html>
