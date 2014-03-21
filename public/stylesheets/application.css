@@ -3,7 +3,6 @@ body
     background-image: url("http://i.imgur.com/9CBqQIh.jpg");
     background-size: cover;
     margin: 100 100 100 100;
-
 }
 
 #title {
@@ -28,6 +27,11 @@ div.box, div.cell {
     display: inline-block;
 }
 
+.box {
+	outline-style: solid;
+	outline-width: 1px;
+	outline-color: white;
+}
 
 .cell input {
   width: 30px;

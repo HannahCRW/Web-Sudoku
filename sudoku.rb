@@ -1,8 +1,11 @@
 require 'sinatra'
+require 'sinatra/partial'
 require_relative './lib/sudoku'
 require_relative './lib/cell'
  
 enable :sessions
+
+set :partial_template_engine, :erb
  
 def random_sudoku
   seed = (1..9).to_a.shuffle + Array.new(81-9, 0)
@@ -57,15 +60,15 @@ def box_order_to_row_order(cells)
       first_box_index = i / 3 * 3
       three_boxes = boxes[first_box_index, 3]
       three_rows_of_three = three_boxes.map do |box| 
-        row_number_in_a_box = i % 3
-        first_cell_in_the_row_index = row_number_in_a_box * 3
-        box[first_cell_in_the_row_index, 3]
-      end
-      memo += three_rows_of_three.flatten
-    }
-  end
+      row_number_in_a_box = i % 3
+      first_cell_in_the_row_index = row_number_in_a_box * 3
+      box[first_cell_in_the_row_index, 3]
+    end
+   memo += three_rows_of_three.flatten
+  }
+end
 
-
+	
 helpers do
 
 	def clean_up_cell_value(value)

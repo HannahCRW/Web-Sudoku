@@ -112,18 +112,4 @@ private
     @cells = cells
   end
 
-  def box_order_to_row_order(cells)
-  boxes = cells.each_slice(9).to_a
-    (0..8).to_a.inject([]) {|memo, i|
-      first_box_index = i / 3 * 3
-      three_boxes = boxes[first_box_index, 3]
-      three_rows_of_three = three_boxes.map do |box| 
-        row_number_in_a_box = i % 3
-        first_cell_in_the_row_index = row_number_in_a_box * 3
-        box[first_cell_in_the_row_index, 3]
-      end
-      memo += three_rows_of_three.flatten
-    }
-  end
-
 end
