@@ -169,43 +169,7 @@ div.box, div.cell {
 	margin-right: 20px;
 }
 
-#hard-button {
-	box-shadow:inset 0px 1px 0px 0px #f9eca0;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9e1818), color-stop(1, #000000) );
-	background:-moz-linear-gradient( center top, #9e1818 5%, #000000 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e1818', endColorstr='#000000');
-	background-color:#9e1818;
-	border:1px solid #000000;
-	display:inline-block;
-	color:#c92200;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	font-family: 'The Girl Next Door', cursive;
-  font-size: 12px;
-  font-color: white;
-}
-
-#medium-button {
-	box-shadow:inset 0px 1px 0px 0px #f9eca0;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9e1818), color-stop(1, #000000) );
-	background:-moz-linear-gradient( center top, #9e1818 5%, #000000 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e1818', endColorstr='#000000');
-	background-color:#9e1818;
-	border:1px solid #000000;
-	display:inline-block;
-	color:#c92200;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	font-family: 'The Girl Next Door', cursive;
-  font-size: 12px;
-  font-color: white;
-}
-
-#easy-button {
+.level button {
 	box-shadow:inset 0px 1px 0px 0px #f9eca0;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9e1818), color-stop(1, #000000) );
 	background:-moz-linear-gradient( center top, #9e1818 5%, #000000 100% );

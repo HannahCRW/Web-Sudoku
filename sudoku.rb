@@ -16,20 +16,10 @@ end
 
 # this method removes some digits from the solution to create a puzzle
 def puzzle(sudoku)
-  sudoku.map { |element| rand > 0.4 ? 0 : element }
+	puzzle_level = session[:puzzle_level] ||= 0.35
+  sudoku.map { |element| rand > puzzle_level ? 0 : element } 
 end
 
-def hard_puzzle(sudoku)
-	sudoku.map { |element| rand > 0.28 ? 0 : element }
-end
-
-def med_puzzle(sudoku)
-	sudoku.map { |element| rand > 0.35 ? 0 : element }
-end
-
-def easy_puzzle(sudoku)
-	sudoku.map { |element| rand > 0.45 ? 0 : element }
-end
 
 def generate_new_puzzle_if_necessary
   return if session[:current_solution]
@@ -45,7 +35,6 @@ def prepare_to_check_solution
 end
 
 get '/' do
-	session.clear
   prepare_to_check_solution
   generate_new_puzzle_if_necessary
   @current_solution = session[:current_solution] || session[:puzzle]
@@ -61,34 +50,17 @@ post '/' do
   redirect to("/")
 end
 
-get '/solution' do
-  @current_solution = session[:solution]
+post '/solution' do
+	@puzzle = session[:current_solution]
+	redirect to("/")
   erb :index
 end
 
 
-post '/hard-puzzle' do
-	session.clear
-	@puzzle = session[:hard_puzzle]
-	@solution = session[:solution]
-	@current_solution = session[:current_solution] || session[:hard_puzzle]
-	erb :index
-end
-
-post '/medium-puzzle' do
-	session.clear
-	@puzzle = session[:med_puzzle]
-	@solution = session[:solution]
-	@current_solution = session[:current_solution] || session[:med_puzzle]
-	erb :index
-end
-
-post '/easy-puzzle' do
-	session.clear
-	@puzzle = session[:easy_puzzle]
-	@solution = session[:solution]
-	@current_solution = session[:current_solution] || session[:easy_puzzle]
-	erb :index
+post '/new-puzzle' do
+	session[:current_solution] = nil
+	session[:puzzle_level] = params[:level].to_f
+	redirect to "/"
 end
 
 

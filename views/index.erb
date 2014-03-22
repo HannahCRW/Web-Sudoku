@@ -44,11 +44,17 @@ SuperDoku
       <button id="sudoku-button">Yes, but is it right?</button>
 </div> 
   <div id="solution-button-div">
-    <button id="solution-button">See Solution</button>
+    <form action="/solution" method="post">
+      <button id="solution-button">See Solution</button>
+    </form>
   </div>
 </form>
 <div id="level-buttons">
-  <form action="/hard-puzzle" method="post"><button id="hard-button">Hard Puzzle</button></form><form action="/medium-puzzle" method="post"><button id="medium-button">Medium Puzzle</button></form><form action="/easy-puzzle" method="post"><button id="easy-button">Easy Puzzle</button></form>
+  <form class="level" action="/new-puzzle" method="post">
+    <button name="level" value="0.28">Hard Puzzle</button>
+    <button name="level" value="0.35">Medium Puzzle</button>
+    <button name="level" value="0.45">Easy Puzzle</button>
+  </form>
 </div>
 </body>
 </html>
